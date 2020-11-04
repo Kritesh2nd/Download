@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gametest001</title><!--Game Test 01 ------------------------>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@900&display=swap" rel="stylesheet">
+    <style>
+      *{margin:0px;padding:0px;box-sizing:border-box;font-family:microsoft sans serif;font-size:16px;columns: #000;}
+      *:focus{outline:none;}
+      .bodies{height:657px;width:100%;position:relative;}
+      .abs{position:absolute;}
+      .ins{position:relative;}
+      .inr{border:0px solid #f00;position:relative;height:100%;width:100%;}
+      .inr0{border:1px solid #f00;position:relative;height:100%;width:100%;}
+      .border{border:1px solid #000;}
+      
+      .boxes{padding:10px 30px;margin:10px auto 20px auto;display:inline-block;border-radius:4px;color:#000;text-decoration:none;}
+      .body01{padding-top:40px;text-align:center;}
+      .rooms{padding-top:40px;padding-bottom:40px;text-align:center;}
+      .btns{display:inline-block;padding:10px 30px;border-radius:4px;}
+      .btns:hover{background-color:#aaa;cursor:pointer;}
+      .values{display:inline;padding:10px 30px;margin:0 20px;}
+      @media screen and (max-width: 650px) {
+        .btns{padding:7px 20px}
+        .values{padding:7px 20px;margin:0 10px;}
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "bodies border">
+      <div class = "inr0 body01">
+        Play online 2D Puzzle<br/>
+        <a href = "https://kritesh2nd.github.io/2dpuzzle/" class = "box01 boxes border">Play</a><br/>
+        Download Link for 2D Puzzle<br/>
+        <a href = "https://s3.amazonaws.com/gonativeio/static/5fa10b5721bed94e3f3b5b3d/app-release.apk" class = "box01 boxes border">Download</a><br/>
+        <div class = "room1 rooms">
+          <div class = "r1btn1 r1btns btns border" onclick = "r1decre()">Decrese</div>
+          <div class = "r1values values"></div>
+          <div class = "r1btn2 r1btns btns border" onclick = "r1incre()">Increase</div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      var boxvalue = 0;
+      var mainbody = document.querySelector(".bodies");
+      var boxesx = document.querySelectorAll(".boxes");
+      var r1btns1= document.querySelectorAll(".r1btns");
+      var r2btns1= document.querySelectorAll(".r2btns");
+      var valuesx = document.querySelectorAll(".values");
+      
+      
+      //var mainbody = document.querySelector(".bodies");
+      //var values = document.querySelectorAll(".values");
+      var screenheight = window.screen.height;
+      var screenwidth = window.screen.width;
+      console.log(screenheight,screenwidth);
+      
+      refreshval();
+      function refreshval(){
+        valuesx[0].innerHTML = boxvalue;
+        if(screenwidth < 450){
+        mainbody.style.height = screenheight-(-boxvalue) + "px";
+        mainbody.style.width = screenwidth + "px";
+      }
+      }
+      function r1decre(){
+        boxvalue-=1;
+        refreshval();
+      }
+      function r1incre(){
+        boxvalue+=1;
+        refreshval();
+      }
+      
+
+      
+      var charX = 1;
+      function moveChar(){
+        
+      };
+      var loop = setInterval(moveChar,1000/60);
+    </script>
+  </body>
+</html>
